@@ -3,6 +3,7 @@ import { renderToString } from "@vue/server-renderer";
 import createRouter from "../router";
 import { createMemoryHistory } from "vue-router";
 let express = require("express");
+import { createPinia } from 'pinia'
 
 let server = express();
 
@@ -10,7 +11,9 @@ server.use(express.static("dist"));
 server.get("/*", async (req, res) => {
   // 创建实例
   let app = createApp();
-
+  // pinia
+  const pinia = createPinia()
+  app.use(pinia)
   // 安装路由插件
   const router = createRouter(createMemoryHistory());
   app.use(router)

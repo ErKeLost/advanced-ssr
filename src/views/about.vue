@@ -9,7 +9,10 @@
 
 <script setup>
 import { ref } from "vue";
-const counter = ref(999);
+import { useCounterStore } from "../store/counter";
+import { storeToRefs } from "pinia";
+const counterStore = useCounterStore();
+const { counter } = storeToRefs(counterStore);
 function addCounter() {
   counter.value += 1;
 }
