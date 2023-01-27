@@ -3,7 +3,10 @@
     {{ counter }}
   </div>
   <button @click="addCounter">+1</button>
-  <a href="www.baidu.com" />
+  <a href="https://www.baidu.com">我是百度啊</a>
+  <RouterLink to="/home"> 我是home </RouterLink>
+  <RouterLink to="/about"> 我是about </RouterLink>
+  <RouterView />
 </template>
 
 <script setup>
