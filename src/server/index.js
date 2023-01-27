@@ -4,6 +4,7 @@ let express = require("express");
 
 let server = express();
 
+server.use(express.static('dist'))
 server.get("/", async (req, res) => {
   let app = createApp();
   const html = await renderToString(app);
@@ -22,6 +23,7 @@ server.get("/", async (req, res) => {
     <div id='app'>
         ${html}
     </div>
+    <script src="/client_bundle.js"></script>
 </body>
 </html>
 `
